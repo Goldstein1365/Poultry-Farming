@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPA Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  .container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>GPA Calculator</h2>
+  <table id="gradesTable">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Grade</th>
+        <th>Credit Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Course rows will go here -->
+    </tbody>
+  </table>
+  <button onclick="addCourse()">Add Course</button>
+  <button onclick="calculateGPA()">Calculate GPA</button>
+  <p id="gpaResult"></p>
+</div>
+
+<script>
+let courses = [];
+
+function addCourse() {
+  const table = document.getElementById('gradesTable').getElementsByTagName('tbody')[0];
+  const row = table.insertRow();
+  const courseCell = row.insertCell(0);
+  const gradeCell = row.insertCell(1);
+  const creditCell = row.insertCell(2);
+
+  courseCell.innerHTML = `<input type="text" placeholder="Course Name">`;
+  gradeCell.innerHTML = `<input type="number" placeholder="Grade (e.g., 4.0)">`;
+  creditCell.innerHTML = `<input type="number" placeholder="Credit Hours">`;
+}
+
+function calculateGPA() {
+  const rows = document.getElementById('gradesTable').getElementsByTagName('tbody')[0].rows;
+  let totalQualityPoints = 0;
+  let totalCreditHours = 0;
+
+  for (let i = 0; i < rows.length; i++) {
+    const grade = parseFloat(rows[i].cells[1].getElementsByTagName('input')[0].value);
+    const creditHours = parseFloat(rows[i].cells[2].getElementsByTagName('input')[0].value);
+    totalQualityPoints += grade * creditHours;
+    totalCreditHours += creditHours;
+  }
+
+  const gpa = totalQualityPoints / totalCreditHours;
+  document.getElementById('gpaResult').innerText = `Your GPA is: ${gpa.toFixed(2)}`;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+:root{
+  --grn1--: #179f31;
+  --grn2--: #16a030;
+  --grn3--: #1a9d33;
+  --grn4--: #22e446;
+  --red1--: #ff1e4c;
+  --org1--: #e97402;
+  --org2--: #f07b3b;
+  --grey--: #888;
+  --grey--: #717171;
+  --wht--: #fff;
+  --blk--: #000;
+  --box-shadow: 7px 7px 15px rgba(0,0,0,0.06)
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--wht--);
+  color: var(--blk--);
+  width: 100%;
+  height: 100vh;
+}
+/* header design */
+.logo{
+  width: 40px;
+  height: 58px;
+  border-radius: 50px;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background: linear-gradient(210deg, #121522,  #988c7e);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.05);
+}
+.nav_items{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav_items li{
+  padding: 0 20px;
+  position: relative;
+}
+.nav_items li a{
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--wht--);
+  transition: ease .3s;
+}
+.nav_items li a:hover,
+.nav_items li a.active{
+  color: var(--org1--);
+}
+
+.nav_items li a.active::after,
+.nav_items li a:hover::after{
+  content: "";
+  width: 35%;
+  height: 2px;
+  background: var(--org1--);
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+/* welcome section design */
+.welcome{
+  background: url(media_2/featbg.png);
+  background-position: top 25% right 0;
+  background-size: cover;
+  padding: 20px 80px;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.welcome h4{
+  padding-top: 35px;
+  padding-bottom: 15px;
+  font-size: 25px;
+  font-family: sofia;
+}
+.welcome h2{
+padding-bottom: 15px;
+font-size: 45px;
+font-weight: 700;
+color: var(--grn3--);
+}
+.welcome h1{
+  padding-bottom: 25px;
+  font-size: 74px;
+  font-weight: 700;
+  line-height: 50px;
+  color: var(--red1--);
+}
+.welcome p{
+padding-bottom: 15px;
+font-size: 20px;
+}
+.welcome button{
+  padding: 9px 20px;
+  color: var(--wht--);
+  font-size: 20px;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  background-color: var(--red1--);
+  border-radius:  15px 5px 15px 5px;
+  cursor: pointer;
+  transition: ease .3s;
+}
+.welcome button:hover{
+  border-radius:  3px 15px 3px 15px;
+  transform: scale(1.04);
+}
+
+/* product section design*/
+#product{
+  text-align: center;
+  padding: 40px 80px;
+}
+#product h1{
+  font-size: 55px;
+  text-transform: uppercase;
+  color: var(--grn1--);
+  font-weight: 750;
+}
+#product .prod-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+#product .prod{
+  width: 23%;
+  min-width: 250px;
+  position: relative;
+  border: 1px solid #cce7d0;
+  padding: 20px 30px;
+  border-radius: 9px;
+  margin: 15px 0;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.02);
+  /* background-color: rgba(152, 140, 126, 0.2); */
+  z-index: 999;
+  cursor: pointer;
+  transition: ease .5s;
+}
+#product .prod:hover{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.06);
+}
+#product .prod img{
+  width: 100%;
+  height: 230px;
+  border-radius: 20px;
+  padding-bottom: 20px;
+}
+#product .prod .descrp{
+  text-align: left;
+}
+#product .prod .descrp span{
+  font-size: 12px;
+  /* font-weight: 600; */
+  color: var(--grn1--);
+}
+#product .prod .descrp i{
+  font-size: 12px;
+  color: rgb(235, 193, 7);
+}
+#product .prod .descrp p{
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--red1--);
+}
+#product .prod .descrp h4{
+  padding-top: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--org1--);
+}
+#product .prod .cart{
+  width: 41px;
+  height: 41px;
+  color: var(--grn2--);
+  font-size: 20px;
+  line-height: 40px;
+  background-color: #cce7d0;
+  /* border: 1px solid none; */
+  border-radius: 50px;
+  position: absolute;
+  bottom: 18px;
+  right: 23px;
+}
